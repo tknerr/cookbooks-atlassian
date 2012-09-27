@@ -9,7 +9,7 @@ class ChefRun
   end
 
   def converge
-    @runner = ChefSpec::ChefRunner.new ({:cookbook_path => ['../atlassian/cookbooks', '..'] })
+    @runner = ChefSpec::ChefRunner.new(:cookbook_path => ['../atlassian/cookbooks', '..'])
     @runner.converge @recipe
   end
 

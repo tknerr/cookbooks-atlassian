@@ -5,14 +5,9 @@ describe ChefRun.new('atlassian::crucible') do
   context "on ubuntu 12.04" do
     before(:all) { mock_and_converge('ubuntu', 12.04) }
     
-   	it "should download fisheye to /tmp" do
-   		subject.should create_remote_file("/tmp/fisheye-2.8.1.zip")
+   	it "should extract fisheye to /opt/atlassian/fisheye" do
+   		pending "can not test this with ark LWRP"
    	end
-
-   	
-
-
-
   end
 
 
