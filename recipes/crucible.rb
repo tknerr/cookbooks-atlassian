@@ -31,8 +31,13 @@ directory fisheye_attrs['instance_dir'] do
   owner fisheye_attrs['user']
   group fisheye_attrs['group']
   mode "0644"
-  action :create
 end
+
+execute "copy_config.xml" do
+  command "cp #{fisheye_attrs['home_dir']/config.xml} #{fisheye_attrs['instance_dir']}"
+  creates "#{fisheye_attrs['instance_dir']}/config.xml"
+end
+
 
 
 
