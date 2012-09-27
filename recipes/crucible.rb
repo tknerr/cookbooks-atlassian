@@ -39,6 +39,7 @@ execute "copy_config.xml" do
 end
 
 
+runit_service "fisheye"
 
 
 

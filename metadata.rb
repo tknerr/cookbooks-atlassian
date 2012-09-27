@@ -9,3 +9,4 @@ name             "atlassian"
 
 depends 'ark', '~> 0.0.11'
 depends 'java', '~> 1.5.4'
+depends 'runit', '~> 0.15.0'

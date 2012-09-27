@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd <%= node['atlassian']['fisheye']['home_dir'] %>
+exec 2>&1
+exec chpst -u <%= node['atlassian']['fisheye']['user'] %> env JAVA_HOME=<%= node['java']['java_home'] %> FISHEYE_INST=<%= node['atlassian']['fisheye']['instance_dir'] %> <%= node['atlassian']['fisheye']['home_dir'] %>/bin/start.sh 
