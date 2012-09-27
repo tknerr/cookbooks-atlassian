@@ -1,6 +1,6 @@
 require File.expand_path('../helpers', __FILE__)
 
-describe ChefRun.new('atlassian::crucible') do
+describe ChefRun.new('atlassian::fisheye') do
   
   context "on ubuntu 12.04" do
     before(:all) { mock_and_converge('ubuntu', 12.04) }

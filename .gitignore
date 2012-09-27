@@ -1,3 +1,6 @@
 # ignore librarian downloaded stuff
 cookbooks/
 tmp/
+
+# ignore Vagrant temp files
+.vagrant
