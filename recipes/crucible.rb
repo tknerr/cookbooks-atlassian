@@ -9,13 +9,31 @@
 
 include_recipe "atlassian::default"
 
+fisheye_attrs = node['atlassian']['fisheye']
+
 ark "fisheye" do
-  url 'http://www.atlassian.com/software/fisheye/downloads/binary/fisheye-2.8.1.zip'
-  version '2.8.1'        
+  url fisheye_attrs['url']
+  version fisheye_attrs['version']
   # ark only supports sha256, this md5...
   #checksum '3021f20ccf77b988197fd8300d5ab9a1'
-  path '/opt/atlassian/fisheye'
+  path fisheye_attrs['home_dir']
   action :put
 end
+
+user fisheye_attrs['user'] do
+  action :create
+  comment "application user for fisheye"
+  gid fisheye_attrs['group']
+  shell ""
+end
+
+directory fisheye_attrs['instance_dir'] do
+  owner fisheye_attrs['user']
+  group fisheye_attrs['group']
+  mode "0644"
+  action :create
+end
+
+
 
 
