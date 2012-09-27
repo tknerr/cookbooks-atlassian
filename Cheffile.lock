@@ -1,0 +1,8 @@
+SITE
+  remote: http://community.opscode.com/api/v1
+  specs:
+    ark (0.0.11)
+
+DEPENDENCIES
+  ark (~> 0.0.11)
+

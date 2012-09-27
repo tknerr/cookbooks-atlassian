@@ -1,0 +1,3 @@
+# ignore librarian downloaded stuff
+cookbooks/
+tmp/
