@@ -8,4 +8,5 @@
 #
 
 include_recipe "ark"
+include_recipe "java"
 

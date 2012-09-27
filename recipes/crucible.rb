@@ -17,3 +17,5 @@ ark "fisheye" do
   path '/opt/atlassian/fisheye'
   action :put
 end
+
+
