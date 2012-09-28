@@ -11,13 +11,8 @@ include_recipe "atlassian::default"
 
 fisheye_attrs = node['atlassian']['fisheye']
 
-ark "fisheye" do
-  url fisheye_attrs['url']
-  version fisheye_attrs['version']
-  # ark only supports sha256, this md5...
-  #checksum '3021f20ccf77b988197fd8300d5ab9a1'
-  path fisheye_attrs['home_dir']
-  action :put
+group fisheye_attrs['group'] do
+  action :create
 end
 
 user fisheye_attrs['user'] do
@@ -27,19 +22,31 @@ user fisheye_attrs['user'] do
   shell ""
 end
 
-directory fisheye_attrs['instance_dir'] do
+ark "fisheye" do
+  url fisheye_attrs['url']
+  version fisheye_attrs['version']
+  # ark only supports sha256, this md5...
+  #checksum '3021f20ccf77b988197fd8300d5ab9a1'
+  path node['atlassian']['home_dir_base']
   owner fisheye_attrs['user']
   group fisheye_attrs['group']
-  mode "0644"
+  action :put
+end
+
+%w{ instance_dir log_dir }.each do |dir|
+  directory fisheye_attrs[dir] do
+    owner fisheye_attrs['user']
+    group fisheye_attrs['group']
+    mode "0644"
+    recursive true
+  end
 end
 
 execute "copy_config.xml" do
-  command "cp #{fisheye_attrs['home_dir']}/config.xml} #{fisheye_attrs['instance_dir']}"
+  command "cp #{fisheye_attrs['home_dir']}/config.xml #{fisheye_attrs['instance_dir']}"
   creates "#{fisheye_attrs['instance_dir']}/config.xml"
 end
 
 
 runit_service "fisheye"
-
-
 

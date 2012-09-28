@@ -17,10 +17,13 @@
 # limitations under the License.
 #
 
+default['atlassian']['home_dir_base'] = '/opt/atlassian/'
+default['atlassian']['instance_dir_base'] = '/var/atlassian/'
+
 default['atlassian']['fisheye']['version'] = '2.8.1'
 default['atlassian']['fisheye']['url'] = 'http://www.atlassian.com/software/fisheye/downloads/binary/fisheye-2.8.1.zip'
 default['atlassian']['fisheye']['user'] = 'fisheye'
 default['atlassian']['fisheye']['group'] = 'fisheye'
-default['atlassian']['fisheye']['home_dir'] = '/opt/atlassian/fisheye/'
-default['atlassian']['fisheye']['instance_dir'] = '/var/atlassian/fisheye/'
+default['atlassian']['fisheye']['home_dir'] = "#{node['atlassian']['home_dir_base']}fisheye/"
+default['atlassian']['fisheye']['instance_dir'] = "#{node['atlassian']['instance_dir_base']}fisheye/"
 default['atlassian']['fisheye']['log_dir'] = '/var/log/atlassian/fisheye/'
