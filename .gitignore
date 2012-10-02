@@ -4,3 +4,7 @@ tmp/
 
 # ignore Vagrant temp files
 .vagrant
+
+# ignore lock files
+Cheffile.lock
+Gemfile.lock
