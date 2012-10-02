@@ -3,3 +3,7 @@ site 'http://community.opscode.com/api/v1'
 cookbook 'ark', '~> 0.0.11'
 cookbook 'java', '~> 1.5.4'
 cookbook 'runit', '~> 0.15.0'
+cookbook 'omnibus_updater', '~> 0.0.4'
+
+cookbook 'vagrant-ohai', '~> 1.0.0', 
+  :git => 'https://github.com/tknerr/cookbooks-vagrant-ohai'
