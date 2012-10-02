@@ -20,6 +20,7 @@ Vagrant::Config.run do |config|
       chef.cookbooks_path = [ "./cookbooks", ".." ]
       
       chef.add_recipe "vagrant-ohai"
+      chef.add_recipe "omnibus_updater"
       chef.add_recipe "atlassian::fisheye"
 
       chef.json = {
